@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 
 public class LeagueInvaders {
 	JFrame frame;
-	final int width = 500;
-	final int Height = 800;
+	final static int width = 500;
+	final static int Height = 800;
 	GamePanel game ;
 	
 public static void main(String[] args) {

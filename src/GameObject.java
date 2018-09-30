@@ -12,7 +12,7 @@ void update() {
 	
 }
 void draw(Graphics c) {
-	c.fillRect(x,y,100,100);
+	
 	
 }
 }
