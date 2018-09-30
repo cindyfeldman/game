@@ -7,14 +7,18 @@ public class LeagueInvaders {
 	final int width = 500;
 	final int Height = 800;
 	GamePanel game ;
+	
 public static void main(String[] args) {
 	LeagueInvaders league = new LeagueInvaders();
 	league.setup();
+	
 }
 public LeagueInvaders() {
 	frame = new JFrame();
 	game = new GamePanel();
 	game.addKeyListener(game);
+	game.setFocusable(true);
+	
 }
 void setup() {
 	frame.add(game);
@@ -25,4 +29,5 @@ void setup() {
 	game.startGame();
 	
 }
+
 }
