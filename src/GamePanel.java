@@ -17,7 +17,10 @@ final int END_STATE = 2;
 int currentState = MENU_STATE;
 Font titleFont ;
 Font other;
-
+int x ;
+int y ;
+RocketShip ship = new RocketShip(250,700,50,50);
+ObjectManager  object = new ObjectManager(ship);
 @Override
 public void actionPerformed(ActionEvent arg0) {
 	// TODO Auto-generated method stub
@@ -36,6 +39,8 @@ public GamePanel() {
 	timer = new Timer(1000/60,this);
 	titleFont = new Font("Arial",Font.PLAIN,48);
 	other = new Font("Arial",Font.PLAIN,25);
+	
+	
 }
 void startGame() {
 	timer.start();
@@ -60,7 +65,7 @@ void updateMenuState() {
 	
 }
 void updateGameState() {
-	
+	object.update();
 }
 void updateEndState() {
 	
@@ -73,14 +78,13 @@ void drawMenuState(Graphics g) {
 	g.drawString("League Invaders", 40, 100);
 	g.setFont(other);
 	g.drawString("Press ENTER To Start",70,300);
-	
-	g.drawString("Press SPACE for instructions",40,500);
+	g.drawString ("Press SPACE for instructions",40,500);
 	
 }
 void drawGameState(Graphics g) {
-	g.setColor(Color.BLACK);
+	g.setColor(Color.black );
 	g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.Height);
-	
+	object.draw(g);
 }
 void drawEndState(Graphics g) {
 	g.setColor(Color.RED);
@@ -100,16 +104,31 @@ currentState = currentState+1;
 	if(currentState>END_STATE) {
 		currentState= MENU_STATE;
 	}
-	System.out.println("KeyPressed");
+	if(arg0.getKeyCode()==KeyEvent.VK_UP) {
+		ship.movingUp();
+	}
+	else if(arg0.getKeyCode()==KeyEvent.VK_DOWN) {
+		ship.movingDown();
+	}
+	else if(arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
+		ship.movingRight();
+	}
+	else {
+		ship.movingLeft();
+	}
+	
 }
+
+
 @Override
 public void keyReleased(KeyEvent arg0) {
 	// TODO Auto-generated method stub
-	System.out.println("key released");
+	
+
 }
 @Override
 public void keyTyped(KeyEvent arg0) {
 	// TODO Auto-generated method stub
-	System.out.println("key typed");
+
 }
 }

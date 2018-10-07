@@ -5,13 +5,14 @@ int x;
 int y ;
 int width;
 int height;
+boolean isAlive = true;
 public GameObject(int x, int y, int height, int width) {
 	
 }
 void update() {
 	
 }
-void draw(Graphics c) {
+void draw(Graphics g) {
 	
 	
 }
