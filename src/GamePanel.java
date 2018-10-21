@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 	Font titleFont;
 	Font other;
-	
+
 	RocketShip ship = new RocketShip(250, 700, 50, 50);
 	ObjectManager object = new ObjectManager(ship);
 
@@ -67,6 +67,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	void updateGameState() {
 		object.update();
+		object.manageEnemies();
+		object.checkCollision();
+		object.purgeObjects();
+		if(ship.isAlive==false) {
+			currentState = END_STATE;
+		}
 	}
 
 	void updateEndState() {

@@ -15,6 +15,7 @@ public class Projectile extends GameObject {
 			isAlive = false;
 
 		}
+		super.update();
 	}
 
 	void draw(Graphics g) {

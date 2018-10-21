@@ -5,7 +5,7 @@ public class RocketShip extends GameObject {
 	int speed ;
 	
 	void update() {
-		
+		super.update();
 	}
 	void draw(Graphics g) {
 		g.setColor(Color.BLUE);
@@ -15,7 +15,7 @@ public class RocketShip extends GameObject {
 
 	public RocketShip(int x, int y, int height, int width) {
 		super(x, y, height, width);
-		speed = 5;
+		speed = 10;
 	}
 	void movingUp(){
 		y = y -speed;

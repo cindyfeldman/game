@@ -7,7 +7,8 @@ public class Aliens extends GameObject{
 		super(x, y, height, width);
 	}
 	void update() {
-		y = y++;
+		y = y+=5;
+		super.update();
 	}
 void draw(Graphics g) {
 	g.setColor(Color.yellow);
