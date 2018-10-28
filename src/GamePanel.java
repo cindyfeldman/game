@@ -109,12 +109,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+			if(currentState==END_STATE) {
+				ship = new RocketShip(250, 700, 50, 500);
+				object = new ObjectManager(ship);
+			}
 			currentState = currentState + 1;
-		}
+			
+			}
+		
 
 		if (currentState > END_STATE) {
 			currentState = MENU_STATE;
 		}
+	
 		if (arg0.getKeyCode() == KeyEvent.VK_UP) {
 			ship.movingUp();
 		} else if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {

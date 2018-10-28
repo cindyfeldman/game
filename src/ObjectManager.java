@@ -12,7 +12,7 @@ ArrayList<Projectile> list = new ArrayList<Projectile>();
 ArrayList<Aliens> alien = new ArrayList<Aliens>();
 public ObjectManager(RocketShip rocket) {
 	this.rocket = rocket;
-	
+	getScore();
 }
 int getScore() {
 	return this.score;
@@ -60,6 +60,7 @@ void purgeObjects() {
 		Aliens and = alien.get(i);
 		if(and.isAlive==false) {
 			alien.remove(i);
+			
 		}
 	}
 
@@ -77,6 +78,7 @@ void checkCollision() {
 		for(Aliens b : alien) {
 			if(b.collisionBox.intersects(pro.collisionBox)) {
 				b.isAlive = false;
+				score += 1;
 				
 			}
 	}
