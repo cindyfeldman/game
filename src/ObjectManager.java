@@ -12,7 +12,7 @@ ArrayList<Projectile> list = new ArrayList<Projectile>();
 ArrayList<Aliens> alien = new ArrayList<Aliens>();
 public ObjectManager(RocketShip rocket) {
 	this.rocket = rocket;
-	getScore();
+	
 }
 int getScore() {
 	return this.score;

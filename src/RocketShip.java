@@ -8,14 +8,13 @@ public class RocketShip extends GameObject {
 		super.update();
 	}
 	void draw(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(x,y,50,50);
+		g.drawImage(GamePanel.rocketImg, x, y, width, height, null);
 		
 	}
 
 	public RocketShip(int x, int y, int height, int width) {
 		super(x, y, height, width);
-		speed = 10;
+		speed = 20;
 	}
 	void movingUp(){
 		y = y -speed;
