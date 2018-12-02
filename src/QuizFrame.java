@@ -33,7 +33,7 @@ Timer timer ;
 public static void main(String[] args) {
 	QuizFrame quiz = new QuizFrame();
     	quiz.getGoing();
-   quiz.sound("file:src/Moonlight.mp3");
+   quiz.sound("file:src/Moonlight.aiff");
    
  
    
@@ -62,7 +62,7 @@ panel.add(label);
 		panel.add(two);
 		panel.add(three);
 		panel.add(four);
-		frame.pack();
+	//.pack();
 		One.addActionListener(this);
 		two.addActionListener(this);
 		three.addActionListener(this);
@@ -113,7 +113,7 @@ panel.add(label);
 		score-=1;
 	}
 	else if(buttonPressed==four&&four.getText().equals("Reel it in")) {//1
-		frames.sound("file:src/Happier.mp3");
+		frames.sound("file:src/Happier.aiff");
 		frame.setSize(400, 600);
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " +" Your score is: " + score );
@@ -124,46 +124,56 @@ panel.add(label);
 		score-=1;
 	}
 	else if(buttonPressed==One&&One.getText().equals("Happier")) {//2
+		noise.stop();
+		frames.sound("file:src/Chun Swae.aiff");
 		score +=10;
 		panel.setBackground(Color.GREEN);
 		label.setText("Correct " + "Your Score is : " + score);
 		One.setText("ZEZE");
 		two.setText("Spice Girl");
-		three.setText("Sicko Mode");
+		three.setText("Chun Swae");
 		four.setText("Wake up in the sky");
 		;
 	}
 	else if(buttonPressed == two&& two.getText().equals("HICCUP")) {//2
+		noise.stop();
+		frames.sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect! " + "Your score is: " + score);
 		One.setText("ZEZE");
 		two.setText("Spice Girl");
-		three.setText("Sicko Mode");
+		three.setText("Chun Swae");
 		four.setText("Wake up in the sky");
 		
 	}
 	else if(buttonPressed==three&&three.getText().equals("SHINE")){//2
+		noise.stop();
+		frames.sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect " + "Your score is: " + score);
 		One.setText("ZEZE");
 		two.setText("Spice Girl");
-		three.setText("Sicko Mode");
+		three.setText("Chun Swae");
 		four.setText("Wake up in the sky");
 		
 		}
 	else if(buttonPressed==four&&four.getText().equals("CANTU")) {//2
+		noise.stop();
+		frames.sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect " + "Your score is: " + score);
 		One.setText("ZEZE");
 		two.setText("Spice Girl");
-		three.setText("Sicko Mode");
+		three.setText("Chun Swae");
 		four.setText("Wake up in the sky");
 	
 	}
 	else if(buttonPressed==One&&One.getText().equals("ZEZE")) {//3
+		noise.stop();
+		frames.sound("file:src/MIA.aiff");
 		score -=1;
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
@@ -174,6 +184,8 @@ panel.add(label);
 	
 	}
 	else if(buttonPressed==two&&two.getText().equals("Spice Girl")) {//3
+		noise.stop();
+		frames.sound("file:src/MIA.aiff");
 		score -=1;
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
@@ -183,7 +195,9 @@ panel.add(label);
 		four.setText("MIA");
 		
 	}
-	else if(buttonPressed==three&&three.getText().equals("Sicko Mode")) {//3
+	else if(buttonPressed==three&&three.getText().equals("Chun Swae")) {//3
+		noise.stop();
+		frames.sound("file:src/MIA.aiff");
 		score +=10;
 		panel.setBackground(Color.GREEN);
 		label.setText("Correct! " + " Your score is: " + score);
@@ -194,6 +208,8 @@ panel.add(label);
 	
 	}
 	else if(buttonPressed==four&&four.getText().equals("Wake up in the sky")) {//3
+		noise.stop();
+		frames.sound("file:src/MIA.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("Incorrect " + "your score is: " + score);
@@ -208,12 +224,14 @@ panel.add(label);
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
 		score-=1;
+		panels.updateEndState();
 	
 	}
 	else if(buttonPressed==two&&two.getText().equals("Lose it")) {//4
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
 		score-=1;
+		
 	}
 	else if(buttonPressed==four&&four.getText().equals("MIA")) {//4
 		score+=10;
