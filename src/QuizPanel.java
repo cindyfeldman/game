@@ -17,8 +17,11 @@ public QuizPanel() {
 public static void main(String[] args) {
 	QuizPanel panel = new QuizPanel();
 	panel.setup();
+	GamePanel game = new GamePanel();
 	QuizFrame quiz = new QuizFrame();
-	
+
+
+
 }
 void setup() {
 	frame.add(game);

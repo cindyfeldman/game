@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
 	Font titleFont;
-	JButton start;
+	
 	Timer timer;
 QuizFrame quiz;
 Font news;
@@ -41,20 +41,20 @@ public void paintComponent(Graphics g) {
 		drawGameState(g);
 		
 	}
-	else {
+	else if(currentState == END_STATE){
 		drawEndState(g);
 	}
 }
 public void updateMenuState() {
-
+	
 }
-
 public void updateGameState() {
 
 }
 
 public void updateEndState() {
 	
+
 
 }
 	public void drawMenuState(Graphics g) {
@@ -70,8 +70,8 @@ public void updateEndState() {
 	}
 
 	public void drawGameState(Graphics g) {
-
-
+		
+	
 	}
 
 	public void drawEndState(Graphics g) {
@@ -93,17 +93,20 @@ g.drawString("You completed this quiz!", 70, 300);
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+	
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			currentState = currentState + 1;
+		
+			QuizFrame quiz = new QuizFrame();
+			quiz.getGoing();
+			currentState = currentState +=1;
 			System.out.println("Enter");
 		}
+		
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 			JOptionPane.showMessageDialog(null, "you have 10 seconds to listen to a song and guess the name. Guess in as little time as possible to get more points. Get all 4 questions right to win!");
 		}
-
-		if (currentState > END_STATE) {
-			currentState = GAME_STATE;
-		}}
+		
+		}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -114,11 +117,11 @@ g.drawString("You completed this quiz!", 70, 300);
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
-			quiz = new QuizFrame();
-			quiz.getGoing();
+			updateGameState();
 			
 		} else {
 			updateEndState();

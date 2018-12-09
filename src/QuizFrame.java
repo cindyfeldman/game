@@ -30,17 +30,10 @@ public class QuizFrame implements ActionListener {
 JLabel label;
 GamePanel panels;
 Timer timer ;
-public static void main(String[] args) {
-	QuizFrame quiz = new QuizFrame();
-    	quiz.getGoing();
-   quiz.sound("file:src/Moonlight.aiff");
-   
- 
-   
-	}
-	
+
 
 	public void getGoing() {
+		sound("file:src/Moonlight.aiff");
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setSize(400,600);
@@ -62,7 +55,7 @@ panel.add(label);
 		panel.add(two);
 		panel.add(three);
 		panel.add(four);
-	//.pack();
+		frame.pack();
 		One.addActionListener(this);
 		two.addActionListener(this);
 		three.addActionListener(this);
@@ -73,13 +66,14 @@ panel.add(label);
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+	
 		noise.stop();
 		QuizFrame frames = new QuizFrame();
+		
 		JButton buttonPressed = (JButton)e.getSource();//1
 	if(buttonPressed==two&&two.getText().equals("Moonlight")){
 		
-		frames.sound("file:src/Happier.aiff");
+		sound("file:src/Happier 1.aiff");
 		score+=10;
 		panel.setBackground(Color.GREEN);
 		frame.setSize(400,600);
@@ -91,7 +85,7 @@ panel.add(label);
 		
 	}
 	else if(buttonPressed==One&&One.getText().equals("Why?")) {//1
-		frames.sound("file:src/Happier.aiff");
+		sound("file:src/Happier 1.aiff");
 		panel.setBackground(Color.RED);
 		frame.setSize(400, 600);
 		label.setText("Incorrect "+ "your score is: " + score);
@@ -102,7 +96,7 @@ panel.add(label);
 		score -= 1;
 	}
 	else if(buttonPressed==three&&three.getText().equals("Sad!")) {//1
-		frames.sound("file:src/Happier.aiff");
+		sound("file:src/Happier 1.aiff");
 		panel.setBackground(Color.RED);
 		frame.setSize(400, 600);
 		label.setText("Incorrect " + "Your score is: "+ score);
@@ -113,7 +107,7 @@ panel.add(label);
 		score-=1;
 	}
 	else if(buttonPressed==four&&four.getText().equals("Reel it in")) {//1
-		frames.sound("file:src/Happier.aiff");
+		sound("file:src/Happier 1.aiff");
 		frame.setSize(400, 600);
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " +" Your score is: " + score );
@@ -124,8 +118,8 @@ panel.add(label);
 		score-=1;
 	}
 	else if(buttonPressed==One&&One.getText().equals("Happier")) {//2
-		noise.stop();
-		frames.sound("file:src/Chun Swae.aiff");
+		
+		sound("file:src/Chun Swae.aiff");
 		score +=10;
 		panel.setBackground(Color.GREEN);
 		label.setText("Correct " + "Your Score is : " + score);
@@ -136,8 +130,8 @@ panel.add(label);
 		;
 	}
 	else if(buttonPressed == two&& two.getText().equals("HICCUP")) {//2
-		noise.stop();
-		frames.sound("file:src/Chun Swae.aiff");
+		
+		sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect! " + "Your score is: " + score);
@@ -148,8 +142,8 @@ panel.add(label);
 		
 	}
 	else if(buttonPressed==three&&three.getText().equals("SHINE")){//2
-		noise.stop();
-		frames.sound("file:src/Chun Swae.aiff");
+	
+		sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect " + "Your score is: " + score);
@@ -160,8 +154,8 @@ panel.add(label);
 		
 		}
 	else if(buttonPressed==four&&four.getText().equals("CANTU")) {//2
-		noise.stop();
-		frames.sound("file:src/Chun Swae.aiff");
+		
+		sound("file:src/Chun Swae.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("incorrect " + "Your score is: " + score);
@@ -172,8 +166,8 @@ panel.add(label);
 	
 	}
 	else if(buttonPressed==One&&One.getText().equals("ZEZE")) {//3
-		noise.stop();
-		frames.sound("file:src/MIA.aiff");
+		
+		sound("file:src/MIA.aiff");
 		score -=1;
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
@@ -184,8 +178,8 @@ panel.add(label);
 	
 	}
 	else if(buttonPressed==two&&two.getText().equals("Spice Girl")) {//3
-		noise.stop();
-		frames.sound("file:src/MIA.aiff");
+		
+		sound("file:src/MIA.aiff");
 		score -=1;
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
@@ -196,8 +190,8 @@ panel.add(label);
 		
 	}
 	else if(buttonPressed==three&&three.getText().equals("Chun Swae")) {//3
-		noise.stop();
-		frames.sound("file:src/MIA.aiff");
+	
+		sound("file:src/MIA.aiff");
 		score +=10;
 		panel.setBackground(Color.GREEN);
 		label.setText("Correct! " + " Your score is: " + score);
@@ -208,8 +202,8 @@ panel.add(label);
 	
 	}
 	else if(buttonPressed==four&&four.getText().equals("Wake up in the sky")) {//3
-		noise.stop();
-		frames.sound("file:src/MIA.aiff");
+		
+		sound("file:src/MIA.aiff");
 		panel.setBackground(Color.RED);
 		score -=1;
 		label.setText("Incorrect " + "your score is: " + score);
@@ -221,27 +215,37 @@ panel.add(label);
 	}
 	
 	else if(buttonPressed==One&&One.getText().equals("Casper")) {//4
+		
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
 		score-=1;
-		panels.updateEndState();
+		panels.currentState +=1;
 	
 	}
 	else if(buttonPressed==two&&two.getText().equals("Lose it")) {//4
+		
+		panels.updateEndState();
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
 		score-=1;
+panels.currentState+=1;
 		
 	}
 	else if(buttonPressed==four&&four.getText().equals("MIA")) {//4
+		panels.currentState = panels.END_STATE;
 		score+=10;
 		label.setText("Correct! " + "your score is: " + score);
-		
+
 	}
 	else if(buttonPressed==three&&three.getText().equals("DNA")) {//4
+		panels.currentState +=1;
+		noise.stop();
 		panel.setBackground(Color.RED);
 		label.setText("Incorrect " + "your score is: " + score);
-	score-=1;}
+	score-=1;
+	
+
+	}
 	
 	}
 		private void sound(String fileName) {
