@@ -43,7 +43,9 @@ public void paintComponent(Graphics g) {
 	}
 	else if(currentState == END_STATE){
 		drawEndState(g);
+		System.out.println("END");
 	}
+	
 }
 public void updateMenuState() {
 	
@@ -67,19 +69,22 @@ public void updateEndState() {
 		g.setFont(news);
 		g.drawString("Press space to get instructions", 60, 300);
 		g.drawString("Press enter to start", 120,100);
+
 	}
 
 	public void drawGameState(Graphics g) {
-		
+
 	
 	}
 
 	public void drawEndState(Graphics g) {
+		quiz.frame.dispose();
+		System.out.println("end");
 g.setColor(Color.red);
 g.fillRect(0, 0, 600, 800);
 g.setFont(titleFont);
 g.setColor(Color.YELLOW);
-g.drawString("You completed this quiz!", 70, 300);
+g.drawString("You completed this quiz!" +quiz.score, 70, 300);
 	}
 
 	
@@ -93,7 +98,6 @@ g.drawString("You completed this quiz!", 70, 300);
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-	
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 		
 			QuizFrame quiz = new QuizFrame();
@@ -104,7 +108,10 @@ g.drawString("You completed this quiz!", 70, 300);
 		
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 			JOptionPane.showMessageDialog(null, "you have 10 seconds to listen to a song and guess the name. Guess in as little time as possible to get more points. Get all 4 questions right to win!");
+				
 		}
+		
+		
 		
 		}
 

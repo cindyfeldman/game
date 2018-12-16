@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
@@ -14,9 +16,10 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class QuizFrame implements ActionListener {
+public class QuizFrame implements ActionListener, KeyListener {
 	JFrame frame;
 	JPanel panel;
 	JButton One;
@@ -28,11 +31,15 @@ public class QuizFrame implements ActionListener {
 	AudioClip noise;
  	Graphics g;
 JLabel label;
+JButton endScore;
 GamePanel panels;
 Timer timer ;
 
+JLabel dos;
+
 
 	public void getGoing() {
+	
 		sound("file:src/Moonlight.aiff");
 		frame = new JFrame();
 		frame.setVisible(true);
@@ -55,11 +62,15 @@ panel.add(label);
 		panel.add(two);
 		panel.add(three);
 		panel.add(four);
-		frame.pack();
+		endScore = new JButton();
+		endScore.setText("get score"
+				);
+		//frame.pack();
 		One.addActionListener(this);
 		two.addActionListener(this);
 		three.addActionListener(this);
 		four.addActionListener(this);
+	frame.addKeyListener(this);
 	
 	}
 
@@ -89,6 +100,7 @@ panel.add(label);
 		panel.setBackground(Color.RED);
 		frame.setSize(400, 600);
 		label.setText("Incorrect "+ "your score is: " + score);
+		
 		One.setText("Happier");
 		two.setText("HICCUP");
 		three.setText("SHINE");
@@ -215,33 +227,63 @@ panel.add(label);
 	}
 	
 	else if(buttonPressed==One&&One.getText().equals("Casper")) {//4
-		
+		frame.setSize(600,400);
 		panel.setBackground(Color.RED);
-		label.setText("Incorrect " + "your score is: " + score);
+		label.setText("You have finished the quiz! "
+				+ "press the button to get your final score!");
+		panel.remove(One);
+		panel.remove(two);
+		panel.remove(three);
+		panel.remove(four);
 		score-=1;
-		panels.currentState +=1;
+		frame.add(endScore);
+		endScore.setSize(50,50);
+	
+		frame.add(endScore);
+		
+	
 	
 	}
+	else if(buttonPressed==endScore) {
+		label.setText("your score is:" +score);
+	}
 	else if(buttonPressed==two&&two.getText().equals("Lose it")) {//4
-		
+		frame.setSize(600,400);
 		panels.updateEndState();
 		panel.setBackground(Color.RED);
-		label.setText("Incorrect " + "your score is: " + score);
+		label.setText("You have finished the quiz! "
+				+ "press the backspace to get your final score!");
+		panel.remove(One);
+		panel.remove(two);
+		panel.remove(three);
+		panel.remove(four);
 		score-=1;
-panels.currentState+=1;
+
 		
 	}
 	else if(buttonPressed==four&&four.getText().equals("MIA")) {//4
-		panels.currentState = panels.END_STATE;
+		frame.setSize(600,400);
 		score+=10;
-		label.setText("Correct! " + "your score is: " + score);
+		label.setText("You have finished the quiz! "
+				+ "press the backspace to get your final score!" );
+		panel.remove(One);
+		panel.remove(two);
+		panel.remove(three);
+		panel.remove(four);
+		
 
 	}
 	else if(buttonPressed==three&&three.getText().equals("DNA")) {//4
-		panels.currentState +=1;
 		noise.stop();
+		frame.setSize(600,400);
 		panel.setBackground(Color.RED);
-		label.setText("Incorrect " + "your score is: " + score);
+		label.setText("You have finished the quiz! "
+				+ "press the backspace to get your final score!");
+		
+		panel.remove(One);
+		panel.remove(two);
+		panel.remove(three);
+		panel.remove(four);
 	score-=1;
 	
 
@@ -260,6 +302,26 @@ panels.currentState+=1;
 					 catch (MalformedURLException e)
 		        {
 		            e.printStackTrace();
- }}}
+ }}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
 			
-	
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
+				System.out.println("back");
+			}
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+}
