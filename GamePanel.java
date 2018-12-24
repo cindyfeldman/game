@@ -104,17 +104,13 @@ g.drawString("You completed this quiz!", 70, 300);
 		// TODO Auto-generated method stub
 	
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			if(currentState ==END_STATE) {
-				frames.frame.dispose();
-				System.out.println("end");
-			}
+		
 			currentState +=1;
 			repaint();
 		 	QuizFrame quiz = new QuizFrame();
 			quiz.getGoing();
 			quiz.frame.setSize(400, 600);
 			
-			System.out.println("Enter");
 		}
 		
 		
@@ -134,7 +130,6 @@ g.drawString("You completed this quiz!", 70, 300);
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
 
 		if (currentState == MENU_STATE) {
 			updateMenuState();

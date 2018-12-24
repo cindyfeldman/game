@@ -216,7 +216,7 @@ exit = new JButton();
 		sound("file:src/MIA.aiff");
 		panel.setBackground(Color.RED);
 		score -=10;
-		label.setText("Incorrect " + "- 10"+" Question 4:");
+		label.setText("Incorrect " + " - 10"+" Question 4:");
 		One.setText("Casper");
 		two.setText("Lose it");
 		three.setText("DNA");
@@ -228,12 +228,14 @@ exit = new JButton();
 	else if(buttonPressed==One&&One.getText().equals("Casper")) {//4
 		end.setEnabled(true);
 		exit.setEnabled(true);
+		exit.setSize(100, 50);
+		end.setSize(100, 100);
 		panel.remove(One);
 		panel.remove(three);
 		panel.remove(two);
 		panel.remove(four);
 		panel.setBackground(Color.RED);
-		label.setText("Incorrect " + "- 10");
+		label.setText("Incorrect " + " - 10");
 		score-=10;
 		
 	
@@ -242,6 +244,8 @@ exit = new JButton();
 	else if(buttonPressed==two&&two.getText().equals("Lose it")) {//4
 		end.setEnabled(true);
 		exit.setEnabled(true);
+		exit.setSize(100, 50);
+		end.setSize(100, 100);
 		panel.remove(One);
 		panel.remove(three);
 		panel.remove(two);
@@ -256,7 +260,8 @@ panels.currentState+=1;
 	else if(buttonPressed==four&&four.getText().equals("MIA")) {//4
 		end.setEnabled(true);
 		exit.setEnabled(true);
-
+		exit.setSize(100, 50);
+		end.setSize(100, 100);
 		panel.remove(One);
 		panel.remove(three);
 		panel.remove(two);
@@ -268,7 +273,8 @@ panels.currentState+=1;
 	else if(buttonPressed==three&&three.getText().equals("DNA")) {//4
 		end.setEnabled(true);
 		exit.setEnabled(true);
-
+		exit.setSize(100, 50);
+		end.setSize(100, 100);
 		panel.remove(One);
 		panel.remove(two);
 		panel.remove(three);
